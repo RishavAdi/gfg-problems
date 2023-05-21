@@ -1,0 +1,22 @@
+class Solution {
+  public:
+  int sum=0;
+  int converttosumtree(Node *node){
+      if(node==NULL)return 0;
+      int leftsum=converttosumtree(node->left);
+      int rightsum=converttosumtree(node->right);
+      
+      sum=leftsum+rightsum+node->data;
+      node->data=leftsum+rightsum;
+      
+      return sum;
+  }
+  
+    // Convert a given tree to a tree where every node contains sum of values of
+    // nodes in left and right subtrees in the original tree
+    void toSumTree(Node *node)
+    {
+       converttosumtree( node);
+        
+    }
+};
