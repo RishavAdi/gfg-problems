@@ -1,0 +1,39 @@
+class Solution
+{
+    public:
+    //Function to sort a linked list of 0s, 1s and 2s.
+    Node* segregate(Node *head) {
+        
+        // Add code here
+        int zerocnt=0;
+        int onecnt=0;
+        int twocnt=0;
+        Node*temp=head;
+        while(temp!=NULL){
+            if(temp->data==0) zerocnt++;
+            else if(temp->data==1) onecnt++;
+            else twocnt++;
+            temp=temp->next;
+            
+        }
+        temp=head;
+        while(zerocnt){
+            temp->data=0;
+            zerocnt--;
+            temp=temp->next;
+        }
+        while(onecnt){
+            temp->data=1;
+            onecnt--;
+            temp=temp->next;
+        }
+        while(twocnt){
+            temp->data=2;
+            twocnt--;
+            temp=temp->next;
+        }
+        return head;
+        
+        
+    }
+};
