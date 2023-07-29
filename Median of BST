@@ -1,0 +1,20 @@
+void f(struct Node*root,vector<float>&ans){
+    if(root==NULL) return ;
+      f(root->left,ans);
+      ans.push_back(root->data);
+      f(root->right,ans);
+}
+float findMedian(struct Node *root)
+{
+    vector<float>ans;
+     f(root,ans);
+     int n=ans.size();
+     float median=0;
+     if(n%2==0){
+         median=(ans[n/2-1]+ans[n/2])/2;
+     }
+     else{
+         median=(ans[n/2]);
+     }
+     return median;
+}
