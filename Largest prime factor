@@ -1,0 +1,12 @@
+class Solution{
+public: 
+    long long int largestPrimeFactor(int N){
+        int st=2;
+        while(st*st<=N){
+            if(N%st==0)
+            N/=st;           
+            else st++;
+        }
+        return N;
+    }
+};
