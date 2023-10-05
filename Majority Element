@@ -1,0 +1,27 @@
+//Moore Voting Algo
+class Solution{
+  public:
+     // Function to find majority element in the array
+    // a: input array
+    // size: size of input array
+    int majorityElement(int a[], int size)
+    {
+        
+        int cnt=0;
+        int e;
+        for(int i=0;i<size;i++){
+            if(cnt==0){
+                e=a[i];
+                cnt++;
+            } 
+            else if(e==a[i]) cnt++;
+            else cnt--;
+        }
+        int cn=0;
+        for(int i=0;i<size;i++){
+            if(a[i]==e) cn++;
+        }
+        if(cn>size/2) return e;
+        return -1;
+    }
+};
