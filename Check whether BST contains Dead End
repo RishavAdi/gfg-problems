@@ -1,0 +1,12 @@
+class Solution{
+  public:
+  bool isDeadEndU(Node*root,int left,int right){
+      if(root==NULL) return false;
+      if(right-left==2) return true;
+      return isDeadEndU(root->left,left,root->data)||isDeadEndU(root->right,root->data,right);
+  }
+    bool isDeadEnd(Node *root)
+    {
+       isDeadEndU(root,0,INT_MAX);
+    }
+};
