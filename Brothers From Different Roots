@@ -1,0 +1,26 @@
+class Solution
+{
+public:
+int ans=0;
+void find(Node*root,int y){
+    if(!root) return ;
+    if(y==root->data) ans++;
+    if(y>root->data)find(root->right,y);
+    else find(root->left,y);
+}
+void findr(Node* root1, Node* root2, int x){
+    if(!root1) return;
+    findr(root1->left,root2,x);
+    int y=x-root1->data;
+    if(y>=0){
+        find(root2,y);
+    }
+    findr(root1->right,root2,x);
+    
+}
+    int countPairs(Node* root1, Node* root2, int x)
+    {
+        findr(root1,root2,x);
+        return ans;
+    }
+};
