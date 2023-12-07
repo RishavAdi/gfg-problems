@@ -1,0 +1,27 @@
+class Solution{
+public:
+bool zeros(vector<int>&cnt){
+    return cnt==vector<int>(26,0);
+}
+	int search(string pat, string txt) {
+	    vector<int>cnt(26,0);
+	    int k=pat.size();
+	    for(auto i:pat){
+	        cnt[i-'a']++;
+	    }
+	    int i=0,j=0;
+	    int n=txt.size();
+	    int result=0;
+	    while(j<n){
+	        cnt[txt[j]-'a']--;
+	        if(j-i+1==k){
+	            if(zeros(cnt)) result++;
+	            cnt[txt[i]-'a']++;
+	            i++;
+	        }
+	        j++;
+	    }
+	    return result;
+	}
+
+};
